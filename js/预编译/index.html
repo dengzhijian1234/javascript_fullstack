@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <script>
+    //函数声明整体变量提升
+    //变量 声明提升
+    //任何变量未经过声明就赋值，此变量就会变成全局变量
+    //一切生命的全局变量都归window所有
+    var b = 123
+    console.log(window.b)
+    
+    var a;
+    // console.log(a)
+    // var a=123
+    a=123
+
+    test()
+    function test(){
+      console.log('hello wrold')
+    }
+  </script> -->
+  <script>
+    // function fn(a) {
+    //   console.log(a)//function(){}
+    //   var a=123
+    //   console.log(a)//123
+    //   function a(){}
+    //   console.log(a)//123
+    //   var b = function(){}
+    //   console.log(b)//function(){}
+    //   function d(){}
+    //   var d = a
+    //   console.log(d)
+    // }
+    // fn(1)
+    // function test(a, b) {
+    //   console.log(a)//1
+    //   c = 0;
+    //   var c;
+    //   a = 3
+    //   b = 2
+    //   console.log(b)//2
+    //   function b() {}
+    //   function d() {}
+    //   console.log(b)//2
+    // }
+    // // AO {
+    // //   a:undefined=>1
+    // //   b:undefined=>function () {}=>2
+    // //   c:undefined
+    // //   d:function() {}
+    // // }
+    // test(1)
+    //............................
+      // //GO
+      // // GO {
+      // //   global:undefined=>100
+      // //   fn:function(){}
+      // // }
+      // var global=100
+      // function fn(){
+      //   console.log(global)
+      // }
+      // // AO{
+
+      // // }
+      // fn()
+        // GO{
+        //   global:undefined=>100
+        //   fn:function(){}
+        // }
+        global = 100
+        function fn () {
+          console.log(global)//undefined
+          global=200
+          console.log(global)//200
+          var global=300
+        }
+        fn()
+        var global;
+        // AO{
+          // global=undefined=>200=>300
+        // }
+  </script>
+</body>
+<html>
