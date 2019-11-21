@@ -5,9 +5,10 @@ const vue = new Vue()
 // axios配置
 axios.defaults.timeout = 10000
 axios.defaults.baseURL = 'http://localhost:3000'
+
 // 判断返回状态,响应拦截
 axios.interceptors.response.use((res) => {
-  if(res.data.code != 200) {
+  if (res.data.code !== 200) {
     alert('网络异常')
     return Promise.reject(res)
   }
@@ -34,16 +35,19 @@ export function fetchGet(url, param) {
 }
 
 export default {
-  // 用户登入
-  Login(params) {
+  // 用户登录
+  Login (params) {
     return fetchGet('/login', params)
   },
   // banners
   BannerList () {
     return fetchGet('/banner')
   },
-  //歌单
+  // 歌单
   DiscLists (params) {
     return fetchGet('/top/playlist', params)
+  },
+  HOtSearchKey () {
+    return fetchGet('/search/hot')
   }
 }

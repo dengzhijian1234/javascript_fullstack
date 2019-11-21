@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="header-icon">
+    <div class="header-icon" @click="leftEvent">
       <slot name="left-icon"></slot>
     </div>
     <div class="header-cont">
@@ -19,6 +19,11 @@ export default {
     return {
 
     }
+  },
+  methods: {
+    leftEvent () {
+      this.$store.dispatch('setShowSidebar', true)
+    }
   }
 }
 </script>
@@ -27,10 +32,11 @@ export default {
 @import "../assets/css/function"
 .header
   height px2rem(88px)
-  line-height center
+  line-height px2rem(88px)
+  text-align center
   display flex
   align-items center
-  justify-content  space-between
+  justify-content space-between
   color #746ca8
   font-size px2rem(30px)
   &-icon
@@ -43,10 +49,9 @@ export default {
     flex 1
     text-align center
     font-size 18px
-    color #ffffff
+    color #fff
     font-weight 500
     overflow hidden
     text-overflow ellipsis
     white-space nowrap
-
 </style>

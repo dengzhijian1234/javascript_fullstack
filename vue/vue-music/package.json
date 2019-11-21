@@ -2,7 +2,7 @@
   "name": "vue-music",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "739226050@qq.com <739226050@qq.com>",
+  "author": "",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "better-scroll": "^1.15.2",
     "fastclick": "^1.0.6",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
