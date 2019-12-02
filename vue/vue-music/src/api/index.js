@@ -47,7 +47,14 @@ export default {
   DiscLists (params) {
     return fetchGet('/top/playlist', params)
   },
-  HOtSearchKey () {
+  HotSearchKey () {
     return fetchGet('/search/hot')
+  },
+  MusicSearch (params) {
+    return fetchGet('/search', params)
+  },
+  //根据id获取歌曲的Url
+  MusicUrl (id) {
+    return fetchGet('/song/url', {id})
   }
 }
