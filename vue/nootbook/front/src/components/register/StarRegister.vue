@@ -24,53 +24,39 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       avatar: require("./../../assets/img/raw_1512446162.png"),
-      nickname: "",
+      nickname:"",
       username: "",
       userpwd: ""
-    };
+    }
   },
   methods: {
-    register() {
-      if (
-        this.nickname.trim() === "" ||
-        this.username.trim() === "" ||
-        this.userpwd.trim() === ""
-      ) {
-        this.$toast("昵称、账号或密码不能为空");
+    register () {
+      if (this.nickname.trim() === '' || this.username.trim() === '' || this.userpwd.trim() === '') {
+        this.$toast('昵称、账号或密码不能为空')
       }
       this.$http({
-        method: {
-          login() {
-            if (
-              this.nickname.trim() === "" ||
-              this.username.trim() === "" ||
-              this.userpwd.trim() === ""
-            ) {
-              this.$Toast("昵称、账号或密码不能为空");
-              return;
-            }
-            this.$http({
-              method: "post",
-              url: "http://localhost:3000/users/userLogin",
-              data: {
-                nickname: this.this.nickname.trim(),
-                username: this.username.trim(),
-                userpwd: this.userpwd.trim()
-              }
-            })
-              .then(res => {})
-              .catch(err => {
-                console.log(err);
-              });
-          },
-          register() {
-            this.$router.push({ path: "/StarRegister" });
-          }
+        method: 'post',
+        url: 'http://localhost:3000/users/userRegister',
+        data: {
+          nickname: this.nickname.trim(),
+          username: this.username.trim(),
+          userpwd: this.userpwd.trim()
         }
-      });
+      })
+      .then(res => {
+        console.log(res)
+        if (res.data.code === '200') {
+          this.$router.push({path: '/StarLogin'})
+        } else {
+          this.$toast(res.data.mess)
+        }
+      })
+    },
+    login () {
+      this.$router.push({path: '/StarLogin'})
     }
   }
 };
@@ -115,7 +101,7 @@ input {
       background-repeat: no-repeat;
       background-size: 100% 100%;
     }
-    .badge-img {
+    .badge-img{
       position: absolute;
       width: 1.2rem;
       height: 1.2rem;
@@ -155,19 +141,19 @@ input {
     .input-group-panel {
       margin-top: 10px;
     }
-    .sign {
-      margin: 0.8rem auto 0;
-      width: 5.546667rem;
-      height: 1.226667rem;
-      line-height: 1.226667rem;
-      border-radius: 0.533333rem;
-      background-color: rgba(51, 54, 67, 1);
-      text-align: center;
-      left: 169px;
-      opacity: 0.8;
-      color: rgba(255, 255, 255, 1);
-      font-size: 0.48rem;
-      font-family: Arial;
+    .sign{
+        margin: .8rem auto 0;
+        width: 5.546667rem;
+        height: 1.226667rem;
+        line-height: 1.226667rem;
+        border-radius: .533333rem;
+        background-color: rgba(51, 54, 67, 1);
+        text-align: center;
+        left: 169px;
+        opacity: 0.8;
+        color: rgba(255, 255, 255, 1);
+        font-size: .48rem;
+        font-family: Arial;
     }
   }
   .register {
